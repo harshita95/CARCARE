@@ -1,0 +1,97 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="well-block">
+                <div class="well-title">
+                    <h2>Questions? Book an Appointment</h2>
+                </div>
+                <form #appointmentForm="ngForm">
+                    <!-- Form start -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label" for="make">Car-Make</label>
+                                <select id="make" name="make" [(ngModel)] ="bookAppointmentInfo.make" class="form-control">
+                                    <option value="maruti">MARUTI</option>
+                                    <option value="audi">AUDI</option>
+                                    <option value="bmw">BMW</option>
+                                    <option value="honda">HONDA</option>
+                                </select>
+                                <!--<input id="make" name="make" type="text" placeholder="make" [(ngModel)] ="make" class="form-control input-md">-->
+                            </div>
+                        </div>
+                        <!-- Text input-->
+                        <!-- Text input-->
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label" for="date">Preferred Date</label>
+                                <input id="date" name="date" type="date" placeholder="Preferred Date" [(ngModel)] ="bookAppointmentInfo.currentDate" class="form-control input-md">
+                            </div>
+                        </div>
+                        <!-- Select Basic -->
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label" for="time">Preferred Time</label>
+                                <select id="time" name="time"  class="form-control">
+                                    <option  value="8:00 to 9:00">8:00 to 9:00</option>
+                                    <option value="9:00 to 10:00">9:00 to 10:00</option>
+                                    <option  value="10:00 to 1:00">10:00 to 1:00</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- Select Basic -->
+
+                            <!--<form name="servicingForm" #servicingForm="ngForm"><h1>Services </h1>-->
+                        <div >
+                            <form name="servicingForm" #servicingForm="ngForm"><h1>Services </h1>
+
+                                <input class="bookAppointmentInfo" name="battery" [(ngModel)]='bookAppointmentInfo.battery' (click)="bookAppointmentInfo.filterData()" type="checkbox" id="battery" #battery = "ngModel">Battery Servicing<br>
+                                <input class="bookAppointmentInfo" name="ac" [(ngModel)]='bookAppointmentInfo.ac' (click)="bookAppointmentInfo.filterData()" type="checkbox" id="ac" #ac = "ngModel">AC Servicing<br>
+                                <input class="bookAppointmentInfo" name="accidental" [(ngModel)]='bookAppointmentInfo.accidental' (click)="bookAppointmentInfo.filterData()" type="checkbox" id="accidental" #accidental = "ngModel">Accidental Servicing<br>
+                                <input class="bookAppointmentInfo" name="regular" [(ngModel)]='bookAppointmentInfo.regular' (click)="bookAppointmentInfo.filterData()" type="checkbox" id="regular" #regular= "ngModel">Regular Servicing<br>
+                                <input class="bookAppointmentInfo" name="washing" [(ngModel)]='bookAppointmentInfo.washing' (click)="bookAppointmentInfo.filterData()" type="checkbox" id="washing" #washing = "ngModel">Washing<br>
+
+                                <!--<input type='button' value='Add' (click)='addServices();' [disabled]="!servicingForm.form.valid"/>-->
+                            </form>
+                        </div>
+                        <!-- Button -->
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <button id="singlebutton" name="singlebutton" (click)='addServices();' class="btn btn-default">Make An Appointment</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- form end -->
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="well-block">
+                <div class="well-title">
+                    <h2>Why Appointment with Us</h2>
+                </div>
+                <div class="feature-block">
+                    <div class="feature feature-blurb-text">
+                        <h4 class="feature-title">24/7 Hours Available</h4>
+                        <div class="feature-content">
+                            <p>Integer nec nisi sed mi hendrerit mattis. Vestibulum mi nunc, ultricies quis vehicula et, iaculis in magnestibulum.</p>
+                        </div>
+                    </div>
+                    <div class="feature feature-blurb-text">
+                        <h4 class="feature-title">Experienced Staff Available</h4>
+                        <div class="feature-content">
+                            <p>Aliquam sit amet mi eu libero fermentum bibendum pulvinar a turpis. Vestibulum quis feugiat risus. </p>
+                        </div>
+                    </div>
+                    <div class="feature feature-blurb-text">
+                        <h4 class="feature-title">Low Price & Fees</h4>
+                        <div class="feature-content">
+                            <p>Praesent eu sollicitudin nunc. Cras malesuada vel nisi consequat pretium. Integer auctor elementum nulla suscipit in.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

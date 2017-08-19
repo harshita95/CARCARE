@@ -1,0 +1,14 @@
+<div >
+    <form name="servicingForm" #servicingForm="ngForm">
+        <div *ngIf="successMessage" [ngClass]="'success'"> {{service.id}} Added.</div>
+        <div *ngIf="errorMessage" [ngClass]="'error'"> {{errorMessage}}</div>
+        <h1>{{title}}</h1>
+        <input class="service" name="battery" [(ngModel)]='service.battery' type="checkbox" id="battery" #battery = "ngModel">Battery Servicing<br>
+        <input class="service" name="ac" [(ngModel)]='service.ac' type="checkbox" id="ac" #ac = "ngModel">AC Servicing<br>
+        <input class="service" name="accidental" [(ngModel)]='service.accidental' type="checkbox" id="accidental" #accidental = "ngModel">Accidental Servicing<br>
+        <input class="service" name="regular" [(ngModel)]='service.regular' type="checkbox" id="regular" #regular= "ngModel">Regular Servicing<br>
+        <input class="service" name="washing" [(ngModel)]='service.washing' type="checkbox" id="washing" #washing = "ngModel">Washing<br>
+
+        <input type='button' value='Add' (click)='addServices();' [disabled]="!servicingForm.form.valid"/>
+    </form>
+</div>

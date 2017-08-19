@@ -1,13 +1,10 @@
 package com.cdk.carcare.controller;
 
-import com.cdk.carcare.model.Car;
 import com.cdk.carcare.model.Customer;
 import com.cdk.carcare.services.CarService;
 import com.cdk.carcare.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Collection;
 
 import static org.springframework.http.MediaType.*;
 
@@ -52,15 +49,22 @@ public class CustomerResourceController {
         return "Customer with id '"+value+" ' resource added successfully!";
     }
 
-    @RequestMapping(value = "/add/car/{email}",consumes = APPLICATION_JSON_VALUE ,produces = TEXT_PLAIN_VALUE ,method = RequestMethod.PUT)
-    public String addCar(@RequestBody Car car,@PathVariable String email){
-        System.out.println("I am in add car");
-        System.out.println(car);
-        Car presentCar = carService.readByCar(car);
-        System.out.println(presentCar);
-        int value = customerService.addCar(presentCar,email);
-        return "Customer with id '"+value+" ' resource added successfully!";
-    }
+//    @RequestMapping(value = "/add/car/{email}",consumes = APPLICATION_JSON_VALUE ,produces = TEXT_PLAIN_VALUE ,method = RequestMethod.PUT)
+//    public String addCar(@RequestBody Car car,@PathVariable String email){
+//        System.out.println("I am in add car");
+//        System.out.println(car);
+//        Car presentCar = carService.readByCar(car);
+//        System.out.println(presentCar);
+//        int value = customerService.addCar(presentCar,email);
+//        return "Customer with id '"+value+" ' resource added successfully!";
+//    }
+
+//    @RequestMapping(value = "/add",consumes = APPLICATION_JSON_VALUE ,produces = TEXT_PLAIN_VALUE ,method = RequestMethod.POST)
+//    public String checkDetails(@PathVariable String email,@PathVariable String password){
+//        customerService.authenticate(email,password);
+//
+//    }
+
 
     @RequestMapping(value = "/customer/{email}",produces = APPLICATION_JSON_VALUE ,method = RequestMethod.GET)
     public Customer readCustomerByEmailAsJson(@PathVariable String email){
@@ -68,6 +72,18 @@ public class CustomerResourceController {
         Customer customer = customerService.readByEmail(email);
         System.out.println(customer);
         return customer;
+    }
+
+    @RequestMapping(value = "/check/{email}/{password}",produces = TEXT_PLAIN_VALUE ,method = RequestMethod.POST)
+    public String checkCustomer(@PathVariable String email,@PathVariable String password){
+        System.out.println("in check customer");
+        Customer customer = customerService.checkEmail(email,password);
+        if(customer==null){
+            return null;
+        }
+        else {
+            return (customer.getCustomerId()+"");
+        }
     }
 
 }

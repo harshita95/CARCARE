@@ -25,7 +25,6 @@ public class Customer {
 
     private String password;
 
-    private Set<Car> cars = new HashSet<Car>(0);
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -78,15 +77,6 @@ public class Customer {
         this.password = password;
     }
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "CUSTOMER_CAR", joinColumns = { @JoinColumn(name = "customer_id") }, inverseJoinColumns = { @JoinColumn(name = "car_id") })
-    public Set<Car> getCars() {
-        return cars;
-    }
-
-    public void setCars(Set<Car> cars) {
-        this.cars = cars;
-    }
 
     public Customer() {
     }
@@ -108,7 +98,6 @@ public class Customer {
                 ", email='" + email + '\'' +
                 ", city='" + city + '\'' +
                 ", password='" + password + '\'' +
-                ", cars=" + cars +
                 '}';
     }
 }

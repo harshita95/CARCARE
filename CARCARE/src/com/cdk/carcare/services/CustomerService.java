@@ -1,13 +1,10 @@
 package com.cdk.carcare.services;
 
 import com.cdk.carcare.dao.CustomerDAO;
-import com.cdk.carcare.model.Car;
 import com.cdk.carcare.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 @Service
 public class CustomerService {
@@ -21,13 +18,7 @@ public class CustomerService {
         return customerDAO.save(customer);
     }
 
-    @Transactional
-    public int addCar(Car car, String email) {
-        //20 loc
-        Customer customer = customerDAO.selectByEmail(email);
-        customer.getCars().add(car);
-        return customerDAO.update(customer);
-    }
+
 
     //    @Transactional
 //    public int modify(Customer customer){
@@ -38,6 +29,25 @@ public class CustomerService {
     @Transactional
     public Customer readByEmail(String email) {
         return customerDAO.selectByEmail(email);
+    }
+
+    @Transactional
+    public Customer readById(int id) {
+        return customerDAO.selectById(id);
+    }
+
+    public void authenticate(String email, String password) {
+        customerDAO.selectByEmail(email);
+    }
+
+    public Customer checkEmail(String email, String password) {
+        Customer customer = customerDAO.selectByEmail(email);
+        if(customer.getPassword().equals(password)){
+            return customer;
+        }
+        else{
+            return null;
+        }
     }
 //
 //    @Transactional

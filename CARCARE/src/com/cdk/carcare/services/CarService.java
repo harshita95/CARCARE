@@ -29,6 +29,15 @@ public class CarService {
         System.out.println("I am in read by car");
         return carDAO.read(car);
     }
+
+    @Transactional
+    public Car readById(int id){
+        return carDAO.selectById(id);
+    }
+
+    public Car readByMake(String make) {
+        return carDAO.selectByMake(make);
+    }
 //
 //    @Transactional
 //    public List<Car> readAll(){

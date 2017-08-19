@@ -1,5 +1,6 @@
 package com.cdk.carcare.dao;
 
+import com.cdk.carcare.model.Car;
 import com.cdk.carcare.model.Customer;
 import org.springframework.stereotype.Repository;
 
@@ -31,6 +32,9 @@ public class CustomerDAO {
          return customer;
     }
 
+    public Customer selectById(int id){
+        return entityManager.find(Customer.class,id);
+    }
 
 //    public List<Customer> selectAll(){
 //        return entityManager.createQuery("from Customer").getResultList();

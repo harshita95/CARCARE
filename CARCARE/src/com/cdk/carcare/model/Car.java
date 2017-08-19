@@ -11,10 +11,14 @@ public class Car {
     @Column(name = "car_id")
     private int carId;
 
+    @Column(name = "service_id")
+    private int serviceId;
+
     private String make;
 
-    @Column(name = "fuel_type")
-    private String fuelType;
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "service_id", updatable = false, insertable = false)
+    private ServiceProvider serviceProvider;
 
     public int getCarId() {
         return carId;
@@ -32,17 +36,8 @@ public class Car {
         this.make = make;
     }
 
-    public String getFuelType() {
-        return fuelType;
-    }
-
-    public void setFuelType(String fuelType) {
-        this.fuelType = fuelType;
-    }
-
-    public Car(String make, String fuelType) {
+    public Car(String make) {
         this.make = make;
-        this.fuelType = fuelType;
     }
 
     public Car() {
@@ -51,15 +46,31 @@ public class Car {
     public Car(int carId, String make, String fuelType) {
         this.carId = carId;
         this.make = make;
-        this.fuelType = fuelType;
+    }
+
+    public int getServiceId() {
+        return serviceId;
+    }
+
+    public void setServiceId(int serviceId) {
+        this.serviceId = serviceId;
+    }
+
+    public ServiceProvider getServiceProvider() {
+        return serviceProvider;
+    }
+
+    public void setServiceProvider(ServiceProvider serviceProvider) {
+        this.serviceProvider = serviceProvider;
     }
 
     @Override
     public String toString() {
         return "Car{" +
                 "carId=" + carId +
+                ", serviceId=" + serviceId +
                 ", make='" + make + '\'' +
-                ", fuelType='" + fuelType + '\'' +
+                ", serviceProvider=" + serviceProvider +
                 '}';
     }
 }

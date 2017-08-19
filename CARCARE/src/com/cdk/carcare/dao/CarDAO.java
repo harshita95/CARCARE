@@ -1,7 +1,6 @@
 package com.cdk.carcare.dao;
 
 import com.cdk.carcare.model.Car;
-import com.cdk.carcare.model.Customer;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -26,16 +25,22 @@ public class CarDAO {
 
     public Car read(Car car){
         System.out.println("I am in read");
-        Query query =  entityManager.createQuery("from Car where fuelType=" + "'" + car.getFuelType() + "'"+ "and make=" + "'" + car.getMake() + "'");
+        Query query =  entityManager.createQuery("from Car where make=" + "'" + car.getMake() + "'");
         Car presentCar = (Car) query.getSingleResult();
         System.out.println(presentCar);
         return presentCar;
     }
 
 
-//    public Car selectById(Integer id){
-//        return entityManager.find(Car.class,id);
-//    }
+    public Car selectById(Integer id){
+        return entityManager.find(Car.class,id);
+    }
+
+    public Car selectByMake(String make) {
+        Query query =  entityManager.createQuery("from Car where make=" + "'" + make + "'");
+        Car car = (Car) query.getSingleResult();
+        return car;
+    }
 //
 //
 //    public List<Car> selectAll(){
