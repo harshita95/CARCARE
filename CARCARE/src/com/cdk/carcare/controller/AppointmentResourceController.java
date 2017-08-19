@@ -1,8 +1,6 @@
 package com.cdk.carcare.controller;
 
-import com.cdk.carcare.model.Appointment;
 import com.cdk.carcare.model.BookAppointmentInfo;
-import com.cdk.carcare.model.ServiceInfo;
 import com.cdk.carcare.services.AppointmentService;
 import com.cdk.carcare.services.BookAppointmentInfoService;
 import com.cdk.carcare.services.CarService;

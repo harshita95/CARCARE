@@ -42,11 +42,11 @@ public class CustomerResourceController {
 //    }
 
 
-    @RequestMapping(value = "/add",consumes = APPLICATION_JSON_VALUE ,produces = TEXT_PLAIN_VALUE ,method = RequestMethod.POST)
-    public String addCustomer(@RequestBody Customer customer){
+    @RequestMapping(value = "/add", consumes = APPLICATION_JSON_VALUE, produces = TEXT_PLAIN_VALUE, method = RequestMethod.POST)
+    public String addCustomer(@RequestBody Customer customer) {
         System.out.println(customer);
         int value = customerService.add(customer);
-        return "Customer with id '"+value+" ' resource added successfully!";
+        return value + "";
     }
 
 //    @RequestMapping(value = "/add/car/{email}",consumes = APPLICATION_JSON_VALUE ,produces = TEXT_PLAIN_VALUE ,method = RequestMethod.PUT)
@@ -66,24 +66,22 @@ public class CustomerResourceController {
 //    }
 
 
-    @RequestMapping(value = "/customer/{email}",produces = APPLICATION_JSON_VALUE ,method = RequestMethod.GET)
-    public Customer readCustomerByEmailAsJson(@PathVariable String email){
-        System.out.println("VIN is : "+email);
+    @RequestMapping(value = "/customer/{email}", produces = APPLICATION_JSON_VALUE, method = RequestMethod.GET)
+    public Customer readCustomerByEmailAsJson(@PathVariable String email) {
+        System.out.println("VIN is : " + email);
         Customer customer = customerService.readByEmail(email);
         System.out.println(customer);
         return customer;
     }
 
-    @RequestMapping(value = "/check/{email}/{password}",produces = TEXT_PLAIN_VALUE ,method = RequestMethod.POST)
-    public String checkCustomer(@PathVariable String email,@PathVariable String password){
+    @RequestMapping(value = "/check/{email}/{password}", produces = TEXT_PLAIN_VALUE, method = RequestMethod.POST)
+    public String checkCustomer(@PathVariable String email, @PathVariable String password) {
         System.out.println("in check customer");
-        Customer customer = customerService.checkEmail(email,password);
-        if(customer==null){
-            return null;
-        }
-        else {
-            return (customer.getCustomerId()+"");
+        Customer customer = customerService.checkEmail(email, password);
+        if (customer == null) {
+            return "null";
+        } else {
+            return (customer.getCustomerId() + "");
         }
     }
-
 }

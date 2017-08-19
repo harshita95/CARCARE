@@ -15,9 +15,11 @@ public class CustomerService {
     @Transactional
     public int add(Customer customer) {
         //20 loc
-        return customerDAO.save(customer);
+        if (customerDAO.selectByEmail(customer.getEmail()) == null)
+            return customerDAO.save(customer);
+        else
+            return -1;
     }
-
 
 
     //    @Transactional
@@ -42,10 +44,9 @@ public class CustomerService {
 
     public Customer checkEmail(String email, String password) {
         Customer customer = customerDAO.selectByEmail(email);
-        if(customer.getPassword().equals(password)){
+        if (customer != null && (customer.getPassword().equals(password))) {
             return customer;
-        }
-        else{
+        } else {
             return null;
         }
     }
