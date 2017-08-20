@@ -18,17 +18,17 @@ public class CustomerServiceTest {
     Customer customer;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         customerService = new CustomerService();
-        customer = new Customer("customer1", 123456789, "mymail1@gmail.com", "pune", "customer2");
+        customer = new Customer("customer1", 123456789, "mymail1@gmail.com", "pune", "customer1");
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
     }
 
     @Test
-    public void add() throws Exception {
+    public void add() {
 
         CustomerDAO customerDAOMock = Mockito.mock(CustomerDAO.class);
         Mockito.when(customerDAOMock.save(customer)).thenReturn(customer.getCustomerId());
@@ -38,25 +38,42 @@ public class CustomerServiceTest {
     }
 
     @Test
-    public void testReadByEmail() throws Exception {
+    public void testReadByEmail() {
         CustomerDAO customerDAOMock = Mockito.mock(CustomerDAO.class);
-        Mockito.when(customerDAOMock.selectByEmail(Matchers.anyObject())).thenReturn(customer);
+        Mockito.when(customerDAOMock.selectByEmail(Matchers.anyString())).thenReturn(customer);
         customerService.setCustomerDAO(customerDAOMock);
         Customer customer = customerService.readByEmail("mymail1@gmail.com");
-        Assert.assertEquals("mymail1@gmail.com",customer.getEmail());
+        Assert.assertEquals("mymail1@gmail.com", customer.getEmail());
     }
 
     @Test
-    public void readById() throws Exception {
+    public void testReadById() {
+
+        CustomerDAO customerDAOMock = Mockito.mock(CustomerDAO.class);
+        Mockito.when(customerDAOMock.selectById(Matchers.anyInt())).thenReturn(customer);
+        customerService.setCustomerDAO(customerDAOMock);
+        Customer customer = customerService.readById(0);
+        Assert.assertEquals(0, customer.getCustomerId());
     }
 
     @Test
-    public void authenticate() throws Exception {
+    public void testCheckEmailCorrectPassword() {
+
+        CustomerDAO customerDAOMock = Mockito.mock(CustomerDAO.class);
+        Mockito.when(customerDAOMock.selectByEmail(Matchers.anyString())).thenReturn(customer);
+        customerService.setCustomerDAO(customerDAOMock);
+        Customer customer = customerService.checkEmail("mymail1@gmail.com", "customer1");
+        Assert.assertEquals(0, customer.getCustomerId());
     }
 
     @Test
-    public void checkEmail() throws Exception {
+    public void checkEmailWrongPassword() {
 
+        CustomerDAO customerDAOMock = Mockito.mock(CustomerDAO.class);
+        Mockito.when(customerDAOMock.selectByEmail(Matchers.anyString())).thenReturn(customer);
+        customerService.setCustomerDAO(customerDAOMock);
+        Customer customer = customerService.checkEmail("mymail1@gmail.com", "customer2");
+        Assert.assertEquals(null, customer);
     }
 
 }

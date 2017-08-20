@@ -43,6 +43,11 @@ public class Car {
     public Car() {
     }
 
+    public Car(int serviceId, String make) {
+        this.serviceId = serviceId;
+        this.make = make;
+    }
+
     public Car(int carId, String make, String fuelType) {
         this.carId = carId;
         this.make = make;

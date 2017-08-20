@@ -14,16 +14,9 @@ public class CarService {
 
     @Transactional
     public int add(Car car){
-        //20 loc
         return carDAO.save(car);
     }
 
-//    @Transactional
-//    public int modify(Car car){
-//        return carDAO.update(car);
-//    }
-//
-//
     @Transactional
     public Car readByCar(Car car){
         System.out.println("I am in read by car");
@@ -38,16 +31,8 @@ public class CarService {
     public Car readByMake(String make) {
         return carDAO.selectByMake(make);
     }
-//
-//    @Transactional
-//    public List<Car> readAll(){
-//        return carDAO.selectAll();
-//
-//    }
-//
-//    @Transactional
-//    public void remove(int id) {
-//        carDAO.delete(id);
-//    }
 
+    public void setCarDAO(CarDAO carDAO) {
+        this.carDAO = carDAO;
+    }
 }

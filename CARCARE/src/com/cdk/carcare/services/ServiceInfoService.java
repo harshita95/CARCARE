@@ -14,8 +14,12 @@ public class ServiceInfoService {
     ServiceInfoDAO serviceInfoDAO;
 
     @Transactional
-    public int add(ServiceInfo serviceInfo){
+    public int add(ServiceInfo serviceInfo) {
         //20 loc
         return serviceInfoDAO.save(serviceInfo);
+    }
+
+    public void setserviceInfoDAO(ServiceInfoDAO serviceInfoDAO) {
+        this.serviceInfoDAO = serviceInfoDAO;
     }
 }

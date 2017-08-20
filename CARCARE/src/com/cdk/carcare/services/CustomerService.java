@@ -21,13 +21,6 @@ public class CustomerService {
             return -1;
     }
 
-
-    //    @Transactional
-//    public int modify(Customer customer){
-//        return customerDAO.update(customer);
-//    }
-//
-//
     @Transactional
     public Customer readByEmail(String email) {
         return customerDAO.selectByEmail(email);
@@ -36,10 +29,6 @@ public class CustomerService {
     @Transactional
     public Customer readById(int id) {
         return customerDAO.selectById(id);
-    }
-
-    public void authenticate(String email, String password) {
-        customerDAO.selectByEmail(email);
     }
 
     public Customer checkEmail(String email, String password) {
@@ -54,16 +43,5 @@ public class CustomerService {
     public void setCustomerDAO(CustomerDAO customerDAO) {
         this.customerDAO = customerDAO;
     }
-//
-//    @Transactional
-//    public List<Customer> readAll(){
-//        return customerDAO.selectAll();
-//
-//    }
-//
-//    @Transactional
-//    public void remove(int id) {
-//        customerDAO.delete(id);
-//    }
 
 }

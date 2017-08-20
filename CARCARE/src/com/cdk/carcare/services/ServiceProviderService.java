@@ -30,4 +30,8 @@ public class ServiceProviderService {
     public ServiceProvider readById(int id) {
         return serviceProviderDAO.selectById(id);
     }
+
+    public void setServiceProviderDAO(ServiceProviderDAO serviceProviderDAO) {
+        this.serviceProviderDAO = serviceProviderDAO;
+    }
 }

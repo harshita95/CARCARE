@@ -42,15 +42,5 @@ public class CustomerDAO {
         return entityManager.find(Customer.class,id);
     }
 
-//    public List<Customer> selectAll(){
-//        return entityManager.createQuery("from Customer").getResultList();
-//
-//    }
-//
-//
-//    public void delete(int id) {
-//        Customer customer = entityManager.find(Customer.class,id);
-//        entityManager.remove(customer);
-//    }
 
 }

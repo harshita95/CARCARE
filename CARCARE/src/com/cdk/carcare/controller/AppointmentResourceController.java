@@ -37,9 +37,4 @@ public class AppointmentResourceController {
             return "false";
         }
     }
-
-    @RequestMapping(value = "/add/appointment/ping",produces = TEXT_PLAIN_VALUE ,method = RequestMethod.GET)
-    public String ping(){
-        return "hello";
-    }
 }
