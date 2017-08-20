@@ -25,4 +25,9 @@ public class ServiceProviderService {
         Car car=carDAO.selectByMake(make);
         return serviceProviderDAO.selectById(car.getServiceId());
     }
+
+    @Transactional
+    public ServiceProvider readById(int id) {
+        return serviceProviderDAO.selectById(id);
+    }
 }

@@ -37,6 +37,7 @@ export class HomeComponent{
                 console.log("I am here"+res.text());
                 this.errorMessage=""
                 this.dataService.setValue(res.text());
+                console.log("in home component "+this.dataService.getValue());
             },
             error => {
                 this.errorMessage = <any>error;

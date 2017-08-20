@@ -12,10 +12,10 @@
                             <div class="form-group">
                                 <label class="control-label" for="make">Car-Make</label>
                                 <select id="make" name="make" [(ngModel)] ="bookAppointmentInfo.make" class="form-control">
-                                    <option value="maruti">MARUTI</option>
-                                    <option value="audi">AUDI</option>
-                                    <option value="bmw">BMW</option>
-                                    <option value="honda">HONDA</option>
+                                    <option name="maruti" value="maruti">MARUTI</option>
+                                    <option name="audi" value="audi">AUDI</option>
+                                    <option name="bmw" value="bmw">BMW</option>
+                                    <option name="honda" value="honda">HONDA</option>
                                 </select>
                                 <!--<input id="make" name="make" type="text" placeholder="make" [(ngModel)] ="make" class="form-control input-md">-->
                             </div>
@@ -28,16 +28,16 @@
                                 <input id="date" name="date" type="date" placeholder="Preferred Date" [(ngModel)] ="bookAppointmentInfo.currentDate" class="form-control input-md">
                             </div>
                         </div>
-                        <!-- Select Basic -->
+
 
                         <div class="col-md-6">
                             <div class="form-group"  >
 
                                 <label class="control-label" for="time" >Preferred Time</label>
-                                <select id="time" name="time"  class="form-control">
-                                    <option  value="8:00 to 9:00" [(ngModel)]='bookAppointmentInfo.firstSlot'>8:00 to 9:00</option>
-                                    <option value="9:00 to 10:00" [(ngModel)]='bookAppointmentInfo.secondSlot'>9:00 to 10:00</option>
-                                    <option  value="10:00 to 1:00" [(ngModel)]='bookAppointmentInfo.thirdSlot'>10:00 to 1:00</option>
+                                <select id="time" name="time" [(ngModel)]="slot"  class="form-control" >
+                                    <option name="slot" value="9:00 to 12:00" >9:00 to 12:00</option>
+                                    <option name="slot" value="12:00 to 3:00" >12:00 to 3:00</option>
+                                    <option name="slot" value="3:00 to 6:00" >3:00 to 6`:00</option>
                                 </select>
 
                             </div>
@@ -45,7 +45,9 @@
 
                         <!-- Select Basic -->
 
-                            <!--<form name="servicingForm" #servicingForm="ngForm"><h1>Services </h1>-->
+
+
+                                <!--<form name="servicingForm" #servicingForm="ngForm"><h1>Services </h1>-->
                         <div >
                             <form name="servicingForm" #servicingForm="ngForm"><h1>Services </h1>
 

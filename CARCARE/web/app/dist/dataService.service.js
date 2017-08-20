@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 const core_1 = require("@angular/core");
 let DataService = class DataService {
     constructor() {
-        this._dataSession = 1;
     }
     getValue() {
         return this._dataSession;

@@ -50,6 +50,10 @@ public class CustomerService {
             return null;
         }
     }
+
+    public void setCustomerDAO(CustomerDAO customerDAO) {
+        this.customerDAO = customerDAO;
+    }
 //
 //    @Transactional
 //    public List<Customer> readAll(){

@@ -17,11 +17,35 @@ let BookAppointmentInfoComponent = class BookAppointmentInfoComponent {
         this.http = http;
         this.dataService = dataService;
         this.title = "Book your Appointment";
+        this.battery = false;
+        this.ac = false;
+        this.accidental = false;
+        this.regular = false;
+        this.washing = false;
         this.customerId = this.dataService.getValue();
         this.bookAppointmentInfo = new bookAppointmentInfo_1.BookAppointmentInfo(this.customerId, this.make, this.currentDate, this.firstSlot, this.secondSlot, this.thirdSlot, this.battery, this.ac, this.accidental, this.regular, this.washing);
+        this.bookAppointmentInfo.customerId = this.dataService.getValue();
+        console.log("in book appointment " + this.dataService.getValue());
     }
     addServices() {
-        console.log("Inside appointment()!!!!");
+        this.bookAppointmentInfo.customerId = this.dataService.getValue();
+        console.log("Inside appointment()!!!!" + this.dataService.getValue());
+        console.log(this.bookAppointmentInfo.toString());
+        if (this.slot == "9:00 to 12:00") {
+            this.bookAppointmentInfo.firstSlot = true;
+            this.bookAppointmentInfo.secondSlot = false;
+            this.bookAppointmentInfo.thirdSlot = false;
+        }
+        if (this.slot == "12:00 to 3:00") {
+            this.bookAppointmentInfo.firstSlot = false;
+            this.bookAppointmentInfo.secondSlot = true;
+            this.bookAppointmentInfo.thirdSlot = false;
+        }
+        if (this.slot == "3:00 to 6:00") {
+            this.bookAppointmentInfo.firstSlot = false;
+            this.bookAppointmentInfo.secondSlot = false;
+            this.bookAppointmentInfo.thirdSlot = true;
+        }
         console.log(this.bookAppointmentInfo.toString());
         let addUrl = "/rest/add/appointment";
         var requestHeaders = new http_1.Headers({ 'Content-Type': 'application/json' });

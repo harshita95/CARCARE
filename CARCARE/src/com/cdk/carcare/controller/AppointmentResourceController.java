@@ -25,10 +25,17 @@ public class AppointmentResourceController {
 
 
     @RequestMapping(value = "/add/appointment",consumes = APPLICATION_JSON_VALUE ,produces = TEXT_PLAIN_VALUE ,method = RequestMethod.POST)
-    public void addAppointment(@RequestBody BookAppointmentInfo bookAppointmentInfo){
+    public String addAppointment(@RequestBody BookAppointmentInfo bookAppointmentInfo){
         System.out.println(bookAppointmentInfo);
-        appointmentService.add(bookAppointmentInfo);
-
+        String name = appointmentService.checkAvailability(bookAppointmentInfo.getMake(),bookAppointmentInfo.getCurrentDate(),bookAppointmentInfo.getFirstSlot(),bookAppointmentInfo.getSecondSlot(),bookAppointmentInfo.getThirdSlot());
+        if(!name.equals("false")) {
+            appointmentService.add(bookAppointmentInfo);
+            return name;
+        }
+        else {
+            System.out.println("false return");
+            return "false";
+        }
     }
 
     @RequestMapping(value = "/add/appointment/ping",produces = TEXT_PLAIN_VALUE ,method = RequestMethod.GET)

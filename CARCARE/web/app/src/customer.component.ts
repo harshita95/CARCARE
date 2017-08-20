@@ -28,6 +28,7 @@ export class CustomerComponent{
 
         var requestHeaders = new Headers({'Content-Type': 'application/json'});
         var options = new RequestOptions({headers: requestHeaders});
+        var val = "-1";
 
         //this.car.logo = this.car.make + '-' + this.car.model + '.png';
         //this.http.post(addUrl,this.car,options).subscribe(res => this.successMessage = res.toString());
@@ -35,6 +36,8 @@ export class CustomerComponent{
             res => {
                 this.successMessage = res.toString();
                 console.log(res.text());
+                if(res.text()==val)
+                    console.log(res.text());
                 this.errorMessage=""
             },
             error => {

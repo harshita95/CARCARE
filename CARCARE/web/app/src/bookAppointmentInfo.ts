@@ -5,15 +5,15 @@ export class BookAppointmentInfo {
     firstSlot: boolean;
     secondSlot: boolean;
     thirdSlot: boolean;
-    battery: string;
-    ac: string;
-    accidental: string;
-    regular: string;
-    washing: string;
+    battery: boolean;
+    ac: boolean;
+    accidental: boolean;
+    regular: boolean;
+    washing: boolean;
     filter: boolean = false;
     customerId:number;
 
-    constructor(customerId: number, make: string, currentDate: Date, firstSlot: boolean, secondSlot: boolean, thirdSlot: boolean, battery: string, ac: string, accidental: string, regular: string, washing: string) {
+    constructor(customerId: number, make: string, currentDate: Date, firstSlot: boolean, secondSlot: boolean, thirdSlot: boolean, battery: boolean, ac: boolean, accidental: boolean, regular: boolean, washing: boolean) {
         this.customerId = customerId;
         this.currentDate = currentDate;
         this.make = make;

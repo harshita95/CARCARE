@@ -5,7 +5,7 @@ import {Injectable} from "@angular/core";
 @Injectable()
 export class DataService {
 
-    public _dataSession : number = 1;
+    public _dataSession : number;
 
     public getValue() {
         return this._dataSession;

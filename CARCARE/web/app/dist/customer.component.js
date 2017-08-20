@@ -25,11 +25,14 @@ let CustomerComponent = class CustomerComponent {
         let addUrl = "/rest/add";
         var requestHeaders = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: requestHeaders });
+        var val = "-1";
         //this.car.logo = this.car.make + '-' + this.car.model + '.png';
         //this.http.post(addUrl,this.car,options).subscribe(res => this.successMessage = res.toString());
         this.http.post(addUrl, this.customer, options).subscribe(res => {
             this.successMessage = res.toString();
             console.log(res.text());
+            if (res.text() == val)
+                console.log(res.text());
             this.errorMessage = "";
         }, error => {
             this.errorMessage = error;
