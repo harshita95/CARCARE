@@ -24,13 +24,13 @@ public class Appointment {
     String newdate;
 
     @Column(name="first_slot")
-    Boolean firstSlot;
+    String firstSlot;
 
     @Column(name="second_slot")
-    Boolean secondSlot;
+    String secondSlot;
 
     @Column(name="third_slot")
-    Boolean thirdSlot;
+    String thirdSlot;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "customer_id", updatable = false, insertable = false)
@@ -84,27 +84,27 @@ public class Appointment {
         this.newdate = newdate;
     }
 
-    public Boolean getFirstSlot() {
+    public String getFirstSlot() {
         return firstSlot;
     }
 
-    public void setFirstSlot(Boolean firstSlot) {
+    public void setFirstSlot(String firstSlot) {
         this.firstSlot = firstSlot;
     }
 
-    public Boolean getSecondSlot() {
+    public String getSecondSlot() {
         return secondSlot;
     }
 
-    public void setSecondSlot(Boolean secondSlot) {
+    public void setSecondSlot(String secondSlot) {
         this.secondSlot = secondSlot;
     }
 
-    public Boolean getThirdSlot() {
+    public String getThirdSlot() {
         return thirdSlot;
     }
 
-    public void setThirdSlot(Boolean thirdSlot) {
+    public void setThirdSlot(String thirdSlot) {
         this.thirdSlot = thirdSlot;
     }
 
@@ -120,17 +120,20 @@ public class Appointment {
         return car;
     }
 
+    public Appointment() {
+    }
+
     public void setCar(Car car) {
         this.car = car;
     }
 
-    public Appointment(Boolean firstSlot, Boolean secondSlot, Boolean thirdSlot) {
+    public Appointment(String firstSlot, String secondSlot, String thirdSlot) {
         this.firstSlot = firstSlot;
         this.secondSlot = secondSlot;
         this.thirdSlot = thirdSlot;
     }
 
-    public Appointment(int customerId, int carId, int serviceId, String newdate, Boolean firstSlot, Boolean secondSlot, Boolean thirdSlot, Customer customer, Car car, ServiceInfo serviceInfo) {
+    public Appointment(int customerId, int carId, int serviceId, String newdate, String firstSlot, String secondSlot, String thirdSlot, Customer customer, Car car, ServiceInfo serviceInfo) {
         this.customerId = customerId;
         this.carId = carId;
         this.serviceId = serviceId;
@@ -143,7 +146,7 @@ public class Appointment {
         this.serviceInfo = serviceInfo;
     }
 
-    public Appointment(String newdate, Boolean firstSlot, Boolean secondSlot, Boolean thirdSlot) {
+    public Appointment(String newdate, String firstSlot, String secondSlot, String thirdSlot) {
         this.newdate = newdate;
         this.firstSlot = firstSlot;
         this.secondSlot = secondSlot;

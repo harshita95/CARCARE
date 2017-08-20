@@ -2,7 +2,6 @@ package com.cdk.carcare.services;
 
 import com.cdk.carcare.dao.AppointmentDAO;
 import com.cdk.carcare.model.*;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -37,7 +36,7 @@ public class AppointmentService {
     }
 
 
-    public String checkAvailability(String make,String currentDate, Boolean firstSlot, Boolean secondSlot, Boolean thirdSlot) {
+    public String checkAvailability(String make, String currentDate, String firstSlot, String secondSlot, String thirdSlot) {
 
         Car car = carService.readByMake(make);
         ServiceProvider serviceProvider = serviceProviderService.readById(car.getServiceId());

@@ -25,9 +25,9 @@ public class BookAppointmentInfoService {
 
     public Appointment makeAppointment(BookAppointmentInfo bookAppointmentInfo,int serviceId) {
         String currentDate=bookAppointmentInfo.getCurrentDate();
-        Boolean firstSlot=bookAppointmentInfo.getFirstSlot();
-        Boolean secondSlot=bookAppointmentInfo.getSecondSlot();
-        Boolean thirdSlot=bookAppointmentInfo.getThirdSlot();
+        String firstSlot=bookAppointmentInfo.getFirstSlot();
+        String secondSlot=bookAppointmentInfo.getSecondSlot();
+        String thirdSlot=bookAppointmentInfo.getThirdSlot();
         Appointment appointment=new Appointment(currentDate,firstSlot,secondSlot,thirdSlot);
         Car car = carService.readByMake(bookAppointmentInfo.getMake());
         appointment.setCarId(car.getCarId());

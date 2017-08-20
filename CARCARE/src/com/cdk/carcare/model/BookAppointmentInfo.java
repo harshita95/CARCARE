@@ -8,11 +8,11 @@ public class BookAppointmentInfo {
 
     String currentDate;
 
-    Boolean firstSlot;
+    String firstSlot;
 
-    Boolean secondSlot;
+    String secondSlot;
 
-    Boolean thirdSlot;
+    String thirdSlot;
 
     String battery;
 
@@ -48,27 +48,27 @@ public class BookAppointmentInfo {
         this.currentDate = currentDate;
     }
 
-    public Boolean getFirstSlot() {
+    public String getFirstSlot() {
         return firstSlot;
     }
 
-    public void setFirstSlot(Boolean firstSlot) {
+    public void setFirstSlot(String firstSlot) {
         this.firstSlot = firstSlot;
     }
 
-    public Boolean getSecondSlot() {
+    public String getSecondSlot() {
         return secondSlot;
     }
 
-    public void setSecondSlot(Boolean secondSlot) {
+    public void setSecondSlot(String secondSlot) {
         this.secondSlot = secondSlot;
     }
 
-    public Boolean getThirdSlot() {
+    public String getThirdSlot() {
         return thirdSlot;
     }
 
-    public void setThirdSlot(Boolean thirdSlot) {
+    public void setThirdSlot(String thirdSlot) {
         this.thirdSlot = thirdSlot;
     }
 
@@ -115,7 +115,7 @@ public class BookAppointmentInfo {
     public BookAppointmentInfo() {
     }
 
-    public BookAppointmentInfo(int customerId, String make, String currentDate, Boolean firstSlot, Boolean secondSlot, Boolean thirdSlot, String battery, String ac, String accidental, String regular, String washing) {
+    public BookAppointmentInfo(int customerId, String make, String currentDate, String firstSlot, String secondSlot, String thirdSlot, String battery, String ac, String accidental, String regular, String washing) {
         this.customerId = customerId;
         this.make = make;
         this.currentDate = currentDate;
